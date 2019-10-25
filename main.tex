@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[utf8]{inputenc}
+
+\title{Simons Observatory Map-Based-Simulations paper summary}
+\author{Andrea Zonca\footnote{authors in random order, need to adjust based on policy} \and Mathew S. Madhavacheril \and Nicoletta Krachmalnicoff \and Alex van Engelen \and David Alonso \and Thibaut Louis \and Marcelo Alvarez \and George Stein \and Giuseppe Puglisi \and Ben Thorne}
+\date{October 2019}
+
+\begin{document}
+
+\maketitle
+
+The purpose of this paper is to support and advertise the public release of
+map-based simulations for the Simons Observatory.
+
+The paper will first describe the 3 software tools used and their inputs, mostly focusing on the inputs, without too much details about the software:
+\begin{itemize}
+    \item \texttt{PySM 3.0.0}: PySM 3 provides higher performance than PySM 2 through multi-threading, just-in-time compilation and lower memory usage. It handles generating the sky inputs, integrating over the bandpass and smoothing with a gaussian beam. PySM 3 will have its own paper within a year.
+    \item \texttt{so\_pysm\_models}: It includes PySM components for general use, all publicly available. In particular it has $N_{side}$ 4096 galactic templates with gaussian random realizations at small scales and extragalactic components via Websky.
+    \item \texttt{mapsims}: It includes Simons Observatory specific models, most notably the noise model and a pipeline execution framework to generate all the jobs to create a simulations release
+\end{itemize}
+
+Secondly it will focus on the available data products and their properties:
+
+\begin{enumerate}
+\item \href{https://github.com/simonsobs/map_based_simulations/tree/master/201906_highres_foregrounds_extragalactic_tophat}{\textbf{\texttt{201906\_highres\_foregrounds\_extragalactic\_tophat}}}: It is the main product, it includes separate maps at $N_{side}$ 4096 and 512 for the Galactic components (dust, synchrotron, free-free, AME), the Extragalctic components (from Websky: CIB, kSZ, tSZ) and CMB (unlensed and lensed with Websky). The sky emissions have been integrated over top-hat bandpasses and smoothed with the nominal symmetric Gaussian beams.
+\item \href{https://github.com/simonsobs/map_based_simulations/tree/master/201906_noise_no_lowell}{\texttt{201906\_noise\_no\_lowell}}:
+  This noise simulation unfortunately     has both old hit-maps and outdated noise figures. I would like to have
+  the new noise simulations completed before the release of the paper. Also I would like to produce them directly in the new pixelization (variable $N_{side}$ with high frequency LAT channels at $N_{side}$ 8192). At
+  this point I would also rerun the tophat simulation with the   new pixelization, it is pretty quick to do. Moreover we should decide how many we want to produce, they are not very expensive, 10 for LAT and 100 for SAT? 10 times that?
+\item \href{https://github.com/simonsobs/map_based_simulations/tree/master/201909_highres_foregrounds_extragalactic_planck_deltabandpass}{\texttt{201909\_highres\_foregrounds\_extragalactic\_planck\_deltabandpass}}:
+  I would also release this signal-only simulation at Planck frequencies
+  it is basically the same simulation at point 1 but at Planck channel frequencies (the measured center frequencies, not the nominal).
+\end{enumerate}
+
+Finally, we plan to add a section on some analysis and comparison of the maps. We should schedule a call to discuss exactly what would be the most useful. As a first proposal, we could plot and compare spectra both of signal and noise, and compare noise spectra with the expected performance of the instruments. It would be very useful to share these analysis as Jupyter Notebooks on a dedicated repository on Github, so that other scientists could easily download and modify them instead of starting from scratch.
+
+\end{document}
