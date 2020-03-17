@@ -13,6 +13,8 @@
 
 \maketitle
 
+\section{Proposal - just for reference}
+
 The purpose of this paper is to support and advertise the public release of
 map-based simulations for the Simons Observatory.
 
@@ -37,5 +39,52 @@ Secondly it will focus on the available data products and their properties:
 \end{enumerate}
 
 Finally, we plan to add a section on some analysis and comparison of the maps. We should schedule a call to discuss exactly what would be the most useful. As a first proposal, we could plot and compare spectra both of signal and noise, and compare noise spectra with the expected performance of the instruments. It would be very useful to share these analysis as Jupyter Notebooks on a dedicated repository on Github, so that other scientists could easily download and modify them instead of starting from scratch.
+
+\section{Introduction}
+
+\section{Sky modeling}
+
+\subsection{Galactic emissions}
+
+Nicoletta, details about the high-resolution models, assume we will have nside 8192. 
+
+Relevant documentation
+\begin{itemize}
+\item \href{https://so-pysm-models.readthedocs.io/en/latest/highres_templates.html}{SO PySM models documentation about high resolution templates}
+\item \href{https://github.com/simonsobs/map_based_simulations/tree/master/201906_highres_foregrounds_extragalactic_tophat}{Details about the map release (we will have a new release with the same components before publication)}
+\end{itemize}
+
+\subsection{Extragalactic and CMB}
+
+Marcelo and collaborators, details about the Websky components and the associated CMB 
+
+Relevant documentation
+\begin{itemize}
+\item \href{https://so-pysm-models.readthedocs.io/en/latest/models.html#websky}{SO PySM models documentation about Websky}
+\item \href{https://github.com/simonsobs/map_based_simulations/tree/master/201906_highres_foregrounds_extragalactic_tophat}{Details about the map release (we will have a new release with the same components before publication)}
+\end{itemize}
+
+\section{Instrument characterization}
+
+Sara
+Any relevant detail in \href{https://github.com/simonsobs/sotodlib/}{\texttt{sotodlib}} about number of telescopes / integration time / site / beam with reference to instrument paper
+
+\subsection{Noise modeling}
+
+Matt H
+\href{https://github.com/simonsobs/so_noise_models}{assumptions/details about spectra in \texttt{so\_noise\_models}}
+
+\section{Data release}
+
+\begin{itemize}
+    \item \href{https://github.com/simonsobs/map_based_simulations/tree/master/202002_noise}{Details, map location about the \texttt{202002\_noise} release}, also describe the capability of running maps on the fly.
+    \item \href{https://github.com/simonsobs/map_based_simulations/tree/master/201906_highres_foregrounds_extragalactic_tophat}{Details, map location about the follow-up foreground release, which will be an improved version of \texttt{201906\_highres\_foregrounds\_extragalactic\_tophat}}
+\end{itemize}
+
+
+\section{Software}
+
+\section{Conclusion}
+
 
 \end{document}
